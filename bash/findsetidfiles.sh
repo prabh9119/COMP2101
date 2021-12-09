@@ -20,6 +20,11 @@ echo "============="
 find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 5
 echo ""
 
+
+echo "12 biggest files:"
+echo "============="
+find / -type f -exec stat -c "%U %n %s" {} ';' 2>/dev/null | sort -k 3nr | head -n 12 
+echo ""
 # for the task, add
 # commands to display a title
 # commands to make a list of the 12 biggest files
